@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Primary Colors - Articulink (Ocean Journey) */
+  --color-surf: #1E96FC;           /* Surf - vibrant ocean blue */
+  --color-tide: #037DE4;           /* Tide - rolling wave blue */
+  --color-abyss: #012A4D;          /* Abyss - deep ocean navy */
+  --color-cloud: #FFFFFF;          /* Cloud - bright white */
+
+  /* Secondary Colors (Ocean Journey) */
+  --color-sunshine: #FCDE1E;       /* Sunshine - warm yellow */
+  --color-coral: #FC1E96;          /* Coral - pink reef */
+  --color-sunset: #FC6F1E;         /* Sunset - beach orange */
+  --color-jellyfish: #C11EFC;      /* Jellyfish - purple glow */
+  --color-kelp: #96FC1E;           /* Kelp - bright green */
+  --color-seafoam: #1EFCC8;        /* Seafoam - tropical teal */
+  --color-success: #22C55E;        /* Success - green */
+  --color-warning: #F59E0B;        /* Warning - amber */
+  --color-error: #EF4444;          /* Error - red */
+  --color-info: #3B82F6;           /* Info - blue */
+
+  /* Blue Scale (6 steps: white → navy) — Ocean Journey */
+  --color-blue-cloud: #FFFFFF;      /* Cloud - bright white sky */
+  --color-blue-breeze: #F7FBFF;     /* Breeze - gentle sea air */
+  --color-blue-mist: #E4F2FE;       /* Mist - morning sea fog */
+  --color-blue-bubble: #AFD9FD;     /* Bubble - playful foam */
+  --color-blue-lagoon: #013F74;     /* Lagoon - tropical waters */
+  --color-blue-abyss: #012A4D;      /* Abyss - ocean depths */
+
+  /* Light Theme — Ocean Journey */
+  --color-bg-primary: #FFFFFF;        /* Cloud - page background */
+  --color-bg-secondary: #F7FBFF;      /* Breeze - section backgrounds */
+  --color-bg-card: #FFFFFF;           /* Cloud - card elements */
+  --color-bg-card-hover: #F7FBFF;     /* Breeze - card hover state */
+  --color-border: #E4F2FE;            /* Mist - card outlines */
+  --color-shadow: #AFD9FD;            /* Bubble - card shadows */
+  --color-text-primary: #012A4D;      /* Abyss - headers & prominent text */
+  --color-text-secondary: #013F74;   /* Lagoon - regular typography */
+
+  /* Fonts */
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-league-spartan);  /* Headlines only */
+  --font-mono: "SF Mono", "Fira Code", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar - Duolingo style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary); /* Mist */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-tide);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sunshine);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-tide);
+  color: white;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, opacity, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* ── Animations ───────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+/* Card depth borders */
+.card-depth {
+  border: 2px solid var(--color-border);
+  border-bottom-width: 5px;
+}
+
+.card-depth-hover {
+  border: 2px solid var(--color-border);
+  border-bottom-width: 7px;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
+/* Code blocks */
+pre {
+  background: var(--color-bg-card);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  border: 1px solid var(--color-border);
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
