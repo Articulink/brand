@@ -7,6 +7,10 @@ import { useState, useEffect } from "react";
 
 const navigation = [
   {
+    name: "Brand",
+    href: "/brand",
+  },
+  {
     name: "Identity",
     href: "/identity",
     children: [
@@ -20,6 +24,15 @@ const navigation = [
       },
       { name: "Color", href: "/identity/color" },
       { name: "Typography", href: "/identity/typography" },
+    ],
+  },
+  {
+    name: "Foundations",
+    href: "/foundations",
+    children: [
+      { name: "Spacing & Layout", href: "/foundations/spacing" },
+      { name: "Accessibility", href: "/foundations/accessibility" },
+      { name: "Motion", href: "/foundations/motion" },
     ],
   },
   {
@@ -43,10 +56,6 @@ const navigation = [
   {
     name: "Illustration",
     href: "/illustration",
-  },
-  {
-    name: "Marketing",
-    href: "/marketing",
   },
   {
     name: "Resources",
@@ -248,7 +257,7 @@ export function Sidebar() {
   return (
     <>
       {/* Mobile header */}
-      <header className="fixed top-0 left-0 right-0 z-50 lg:hidden bg-surf">
+      <header className="fixed top-0 left-0 right-0 z-50 lg:hidden bg-tide">
         <div className="flex items-center justify-between px-4 h-14">
           <Link href="/" className="flex items-center gap-2.5">
             <Image

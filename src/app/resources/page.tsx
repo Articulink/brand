@@ -49,8 +49,8 @@ const downloads = [
 ];
 
 const fonts = [
-  { name: "Nunito", type: "Display", url: "https://fonts.google.com/specimen/Nunito" },
-  { name: "Poppins", type: "Body", url: "https://fonts.google.com/specimen/Poppins" },
+  { name: "League Spartan", type: "Headlines", url: "https://fonts.google.com/specimen/League+Spartan" },
+  { name: "Poppins", type: "Everything Else", url: "https://fonts.google.com/specimen/Poppins" },
 ];
 
 export default function ResourcesPage() {
@@ -133,7 +133,7 @@ export default function ResourcesPage() {
 
       {/* Brand Kit */}
       <Section title="Complete Brand Kit" id="kit">
-        <div className="rounded-2xl bg-surf p-8 lg:p-12">
+        <div className="rounded-2xl bg-tide p-8 lg:p-12">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div>
               <h3 className="font-display text-2xl lg:text-3xl font-bold text-white">
