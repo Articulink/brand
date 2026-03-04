@@ -1,13 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import { Section } from "@/components/Section";
+import { LogoWithSize } from "@/components/Logo";
+import Link from "next/link";
 import { useState } from "react";
 
 const variants = [
-  { name: "Tide", bg: "bg-blue-breeze", logoColor: "text-tide", dotColor: "bg-tide", file: "logo.svg" },
-  { name: "Abyss", bg: "bg-blue-breeze", logoColor: "text-abyss", dotColor: "bg-abyss", file: "logo-abyss.svg" },
-  { name: "Cloud", bg: "bg-tide", logoColor: "text-white", dotColor: "bg-white border border-border", file: "logo-white.svg" },
+  { name: "Tide", bgStyle: { backgroundColor: "#F7FBFF" }, logoStyle: { color: "#037DE4" }, dotStyle: { backgroundColor: "#037DE4" }, file: "logo.svg" },
+  { name: "Abyss", bgStyle: { backgroundColor: "#F7FBFF" }, logoStyle: { color: "#012A4D" }, dotStyle: { backgroundColor: "#012A4D" }, file: "logo-abyss.svg" },
+  { name: "Cloud", bgStyle: { backgroundColor: "#037DE4" }, logoStyle: { color: "#FFFFFF" }, dotStyle: { backgroundColor: "#FFFFFF", border: "1px solid #E4F2FE" }, file: "logo-white.svg" },
 ];
 
 export default function LogoPage() {
@@ -17,16 +18,16 @@ export default function LogoPage() {
   return (
     <div className="min-h-screen pb-12">
       {/* Header */}
-      <header className="px-6 lg:px-12 py-8 lg:py-12 border-b border-border">
-        <nav className="text-sm text-text-muted mb-3">
-          <span>Identity</span>
+      <header className="px-8 lg:px-16 py-12 lg:py-16 border-b border-border">
+        <nav className="text-sm text-text-muted mb-4">
+          <Link href="/identity" className="hover:text-tide transition-colors">Identity</Link>
           <span className="mx-2">/</span>
           <span className="text-abyss">Logo</span>
         </nav>
-        <h1 className="font-display text-3xl lg:text-4xl font-extrabold text-abyss">
+        <h1 className="font-display text-4xl lg:text-5xl font-extrabold text-abyss">
           Logo
         </h1>
-        <p className="mt-2 text-base text-text-secondary max-w-xl">
+        <p className="mt-3 text-lg text-text-secondary max-w-2xl">
           Our logo is the most recognizable element of our brand.
         </p>
       </header>
@@ -36,7 +37,8 @@ export default function LogoPage() {
         <div className="flex flex-col xl:flex-row gap-4 xl:gap-6">
           {/* Logo Display */}
           <div
-            className={`flex-1 rounded-2xl p-8 sm:p-12 lg:p-16 transition-colors duration-300 relative ${current.bg}`}
+            className="flex-1 rounded-2xl p-8 sm:p-12 lg:p-16 transition-colors duration-300 relative"
+            style={current.bgStyle}
           >
             {/* Download button */}
             <button className="absolute top-4 right-4 w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
@@ -46,7 +48,10 @@ export default function LogoPage() {
             </button>
 
             <div className="flex items-center justify-center min-h-[120px] sm:min-h-[160px]">
-              <span className={`font-wordmark text-5xl sm:text-6xl lg:text-7xl font-bold transition-colors duration-300 ${current.logoColor}`}>
+              <span
+                className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold transition-colors duration-300"
+                style={current.logoStyle}
+              >
                 articulink
               </span>
             </div>
@@ -57,11 +62,12 @@ export default function LogoPage() {
                 <button
                   key={variant.name}
                   onClick={() => setActiveVariant(idx)}
-                  className={`w-4 h-4 rounded-full transition-all ${variant.dotColor} shadow-[0_0_0_2px_rgba(255,255,255,0.8),0_0_0_3px_rgba(0,0,0,0.1)] ${
+                  className={`w-4 h-4 rounded-full transition-all shadow-[0_0_0_2px_rgba(255,255,255,0.8),0_0_0_3px_rgba(0,0,0,0.1)] ${
                     idx === activeVariant
                       ? "scale-110"
                       : "opacity-70 hover:opacity-100"
                   }`}
+                  style={variant.dotStyle}
                   aria-label={`${variant.name} logo`}
                 />
               ))}
@@ -85,7 +91,7 @@ export default function LogoPage() {
               </a>
             </div>
             <p className="text-sm text-text-secondary leading-relaxed mb-4">
-              Our typographic signature uses League Spartan Bold. The clean, geometric letterforms convey confidence and approachability.
+              Our typographic signature uses Nunito Bold. The rounded, friendly letterforms convey warmth and approachability.
             </p>
             <p className="text-sm text-text-secondary leading-relaxed">
               The logotype can be used in one of three colors: <span className="text-tide font-medium">Tide</span>, <span className="text-abyss font-medium">Abyss</span>, or <span className="font-medium">Cloud</span>.
@@ -136,13 +142,7 @@ export default function LogoPage() {
                   <span className="mt-1 text-[10px] text-tide">1x</span>
                 </div>
               </div>
-              <Image
-                src="/images/logo.svg"
-                alt="Logo with clear space"
-                width={160}
-                height={40}
-                className="h-8 w-auto"
-              />
+              <LogoWithSize variant="default" size="text-2xl" />
             </div>
           </div>
         </div>
@@ -154,13 +154,7 @@ export default function LogoPage() {
           <div className="rounded-xl bg-bg-secondary p-5">
             <p className="text-xs font-medium text-text-muted mb-3">Digital</p>
             <div className="bg-white rounded-lg p-4">
-              <Image
-                src="/images/logo.svg"
-                alt="Minimum digital size"
-                width={120}
-                height={30}
-                className="h-5 w-auto"
-              />
+              <LogoWithSize variant="default" size="text-lg" />
             </div>
             <p className="mt-3 text-xs text-text-secondary">120px minimum width</p>
           </div>
@@ -168,13 +162,7 @@ export default function LogoPage() {
           <div className="rounded-xl bg-bg-secondary p-5">
             <p className="text-xs font-medium text-text-muted mb-3">Print</p>
             <div className="bg-white rounded-lg p-4">
-              <Image
-                src="/images/logo.svg"
-                alt="Minimum print size"
-                width={120}
-                height={30}
-                className="h-5 w-auto"
-              />
+              <LogoWithSize variant="default" size="text-lg" />
             </div>
             <p className="mt-3 text-xs text-text-secondary">1 inch (25mm) minimum</p>
           </div>
@@ -192,7 +180,7 @@ export default function LogoPage() {
               </svg>
             </div>
             <div className="h-20 flex items-center justify-center">
-              <span className="font-wordmark text-3xl font-bold text-tide scale-x-150">articulink</span>
+              <span className="font-display text-3xl font-extrabold text-tide scale-x-150">articulink</span>
             </div>
             <p className="text-xs text-text-muted mt-2 text-center">Don&apos;t stretch or distort</p>
           </div>
@@ -205,7 +193,7 @@ export default function LogoPage() {
               </svg>
             </div>
             <div className="h-20 flex items-center justify-center">
-              <span className="font-wordmark text-3xl font-bold text-coral">articulink</span>
+              <span className="font-display text-3xl font-extrabold text-coral">articulink</span>
             </div>
             <p className="text-xs text-text-muted mt-2 text-center">Don&apos;t change colors</p>
           </div>
@@ -218,7 +206,7 @@ export default function LogoPage() {
               </svg>
             </div>
             <div className="h-20 flex items-center justify-center">
-              <span className="font-wordmark text-3xl font-bold text-tide drop-shadow-[4px_6px_0px_rgba(0,0,0,0.4)]">articulink</span>
+              <span className="font-display text-3xl font-extrabold text-tide shadow-example">articulink</span>
             </div>
             <p className="text-xs text-text-muted mt-2 text-center">Don&apos;t add shadows</p>
           </div>
@@ -231,7 +219,7 @@ export default function LogoPage() {
               </svg>
             </div>
             <div className="h-20 flex items-center justify-center">
-              <span className="font-wordmark text-3xl font-bold text-tide -rotate-12">articulink</span>
+              <span className="font-display text-3xl font-extrabold text-tide -rotate-12">articulink</span>
             </div>
             <p className="text-xs text-text-muted mt-2 text-center">Don&apos;t rotate or skew</p>
           </div>
@@ -245,7 +233,7 @@ export default function LogoPage() {
             </div>
             <div className="h-20 flex items-center justify-center">
               <div className="px-4 py-2 rounded-lg bg-surf">
-                <span className="font-wordmark text-3xl font-bold text-tide">articulink</span>
+                <span className="font-display text-3xl font-extrabold text-tide">articulink</span>
               </div>
             </div>
             <p className="text-xs text-text-muted mt-2 text-center">Don&apos;t use low contrast</p>
@@ -260,7 +248,7 @@ export default function LogoPage() {
             </div>
             <div className="h-20 flex items-center justify-center">
               <div className="px-4 py-2 rounded-lg bg-gradient-to-br from-sunshine via-coral to-jellyfish">
-                <span className="font-wordmark text-3xl font-bold text-tide">articulink</span>
+                <span className="font-display text-3xl font-extrabold text-tide">articulink</span>
               </div>
             </div>
             <p className="text-xs text-text-muted mt-2 text-center">Don&apos;t use busy backgrounds</p>

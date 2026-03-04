@@ -19,15 +19,17 @@
   --color-error: #EF4444;          /* Error - red */
   --color-info: #3B82F6;           /* Info - blue */
 
-  /* Blue Scale (6 steps: white → navy) — Ocean Journey */
+  /* Blue Scale (8 steps: white → midnight) — Ocean Journey */
   --color-blue-cloud: #FFFFFF;      /* Cloud - bright white sky */
   --color-blue-breeze: #F7FBFF;     /* Breeze - gentle sea air */
   --color-blue-mist: #E4F2FE;       /* Mist - morning sea fog */
   --color-blue-bubble: #AFD9FD;     /* Bubble - playful foam */
   --color-blue-lagoon: #013F74;     /* Lagoon - tropical waters */
+  --color-blue-depths: #01355E;     /* Depths - deep waters */
   --color-blue-abyss: #012A4D;      /* Abyss - ocean depths */
+  --color-blue-trench: #001C33;     /* Trench - midnight ocean */
 
-  /* Light Theme — Ocean Journey */
+  /* Theme tokens (overridden in dark mode) */
   --color-bg-primary: #FFFFFF;        /* Cloud - page background */
   --color-bg-secondary: #F7FBFF;      /* Breeze - section backgrounds */
   --color-bg-card: #FFFFFF;           /* Cloud - card elements */
@@ -35,12 +37,44 @@
   --color-border: #E4F2FE;            /* Mist - card outlines */
   --color-shadow: #AFD9FD;            /* Bubble - card shadows */
   --color-text-primary: #012A4D;      /* Abyss - headers & prominent text */
-  --color-text-secondary: #013F74;   /* Lagoon - regular typography */
+  --color-text-secondary: #013F74;    /* Lagoon - regular typography */
+  --color-text-muted: #AFD9FD;        /* Bubble - muted text */
 
   /* Fonts */
   --font-sans: var(--font-poppins);
-  --font-display: var(--font-league-spartan);  /* Headlines only */
+  --font-display: var(--font-nunito);  /* Headlines only */
   --font-mono: "SF Mono", "Fira Code", monospace;
+}
+
+/* ── Dark Mode Overrides ───────────────────────────────── */
+
+:root {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+
+  /* Flipped Blue Scale — Ocean Journey at Night */
+  --color-blue-cloud: #001C33;         /* Trench (was Cloud) */
+  --color-blue-breeze: #012A4D;        /* Abyss (was Breeze) */
+  --color-blue-mist: #01355E;          /* Depths (was Mist) */
+  --color-blue-bubble: #AFD9FD;        /* Bubble stays (middle of scale) */
+  --color-blue-lagoon: #E4F2FE;        /* Mist (was Lagoon) */
+  --color-blue-depths: #F7FBFF;        /* Breeze (was Depths) */
+  --color-blue-abyss: #FFFFFF;         /* Cloud (was Abyss) */
+  --color-blue-trench: #FFFFFF;        /* Cloud (was Trench) */
+
+  /* Theme tokens flipped */
+  --color-bg-primary: #001C33;         /* Trench - darkest background */
+  --color-bg-secondary: #012A4D;       /* Abyss - section backgrounds */
+  --color-bg-card: #012A4D;            /* Abyss - card elements */
+  --color-bg-card-hover: #01355E;      /* Depths - card hover */
+  --color-border: #01355E;             /* Depths - visible on dark */
+  --color-shadow: #000000;             /* Pure black shadow */
+  --color-text-primary: #FFFFFF;       /* Cloud */
+  --color-text-secondary: #F7FBFF;     /* Breeze */
+  --color-text-muted: #AFD9FD;         /* Bubble */
 }
 
 html {
@@ -55,23 +89,213 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar - Duolingo style */
+/* Dark mode specific styles */
+:root.dark body {
+  background: #001C33 !important;
+}
+
+:root.dark main {
+  background: #001C33 !important;
+}
+
+/* Sidebar card - match page background */
+aside > div {
+  background: #FFFFFF !important;
+}
+
+:root.dark aside > div {
+  background: #012A4D !important;
+}
+
+/* ── Flipped Blue Scale Backgrounds ────────────────────── */
+:root.dark .bg-white,
+:root.dark .bg-blue-cloud {
+  background-color: var(--color-bg-card) !important;
+}
+
+:root.dark .bg-blue-breeze {
+  background-color: #012A4D !important;
+}
+
+:root.dark .bg-blue-mist {
+  background-color: #01355E !important;
+}
+
+/* Bubble stays the same */
+
+:root.dark .bg-blue-lagoon {
+  background-color: #E4F2FE !important;
+}
+
+:root.dark .bg-blue-abyss {
+  background-color: #FFFFFF !important;
+}
+
+/* Light mode explicit */
+.bg-bg-primary {
+  background-color: #FFFFFF;
+}
+
+.bg-bg-secondary {
+  background-color: #F7FBFF;
+}
+
+.bg-bg-card {
+  background-color: #FFFFFF;
+}
+
+/* Card text - Lagoon in light mode */
+.card-depth,
+.card-depth p,
+.card-depth span:not(.text-abyss):not(.text-tide):not(.text-white) {
+  color: #013F74; /* Lagoon */
+}
+
+/* Dark mode overrides */
+:root.dark .bg-bg-primary {
+  background-color: #001C33 !important;
+}
+
+:root.dark .bg-bg-secondary {
+  background-color: #012A4D !important;
+}
+
+:root.dark .bg-bg-card {
+  background-color: #012A4D !important;
+}
+
+/* ── Flipped Blue Scale Text ───────────────────────────── */
+:root.dark .text-abyss,
+:root.dark .text-blue-abyss {
+  color: #FFFFFF !important;
+}
+
+/* Logo text - Tide in light mode, Cloud in dark mode */
+.logo-text {
+  color: #037DE4; /* Tide */
+}
+
+:root.dark .logo-text {
+  color: #FFFFFF !important; /* Cloud */
+}
+
+:root.dark .text-blue-lagoon {
+  color: #E4F2FE !important;
+}
+
+:root.dark [class*="text-blue-lagoon/"] {
+  color: #E4F2FE !important;
+}
+
+/* Bubble text stays the same */
+
+:root.dark .text-blue-mist {
+  color: #015a9e !important;
+}
+
+:root.dark .text-blue-breeze {
+  color: #013F74 !important;
+}
+
+:root.dark .text-blue-cloud {
+  color: #012A4D !important;
+}
+
+/* Light mode text tokens */
+.text-text-secondary {
+  color: #013F74; /* Lagoon */
+}
+
+.text-text-muted {
+  color: #AFD9FD; /* Bubble */
+}
+
+:root.dark .text-text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+:root.dark .text-text-muted {
+  color: var(--color-text-muted) !important;
+}
+
+/* ── Flipped Blue Scale Borders ────────────────────────── */
+:root.dark .border-border,
+:root.dark .border-blue-mist {
+  border-color: var(--color-border) !important;
+}
+
+:root.dark .border-blue-breeze {
+  border-color: #013F74 !important;
+}
+
+:root.dark .border-blue-cloud {
+  border-color: #012A4D !important;
+}
+
+/* ── Cards & Components ────────────────────────────────── */
+/* Dark mode: full border because card (Abyss) is on Trench background */
+:root.dark .card-depth {
+  border: 2px solid #01355E;
+  border-bottom-width: 5px;
+  background-color: var(--color-bg-card);
+}
+
+:root.dark pre {
+  background: #001C33;
+  border-color: var(--color-border);
+}
+
+:root.dark ::selection {
+  background: var(--color-sunshine);
+  color: #012A4D;
+}
+
+/* ── Sunshine buttons always use Abyss text ────────────── */
+.bg-sunshine,
+.bg-sunshine * {
+  color: #012A4D !important; /* Abyss */
+}
+
+/* ── Hover States ──────────────────────────────────────── */
+:root.dark .hover\:text-abyss:hover {
+  color: #FFFFFF !important;
+}
+
+:root.dark .hover\:bg-blue-breeze:hover {
+  background-color: #013F74 !important;
+}
+
+:root.dark .hover\:bg-blue-mist:hover {
+  background-color: #015a9e !important;
+}
+
+:root.dark .hover\:border-tide\/30:hover {
+  border-color: rgba(3, 125, 228, 0.3) !important;
+}
+
+/* Custom scrollbar - Tide/Surf color scheme */
+html {
+  scrollbar-width: auto;
+  scrollbar-color: #037DE4 transparent;
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary); /* Mist */
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-tide);
-  border-radius: 4px;
+  background-color: #037DE4; /* Tide */
+  border-radius: 5px;
+  transition: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-sunshine);
+  background-color: #1E96FC; /* Surf */
 }
 
 /* Selection */
@@ -85,6 +309,13 @@ body {
   transition-property: background-color, border-color, color, opacity, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+/* Disable transitions on scrollbar */
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  transition: none !important;
 }
 
 /* ── Animations ───────────────────────────────────────── */
@@ -116,17 +347,25 @@ body {
   }
 }
 
-/* Animation utilities */
+/* Animation utilities - override global transitions */
 .animate-fade-in {
   animation: fadeIn 0.3s ease-out forwards;
+  transition: none !important;
 }
 
 .animate-fade-in-up {
   animation: fadeInUp 0.4s ease-out forwards;
+  transition: none !important;
 }
 
 .animate-scale-in {
   animation: scaleIn 0.3s ease-out forwards;
+  transition: none !important;
+}
+
+/* Elements with animation delays also need transition override */
+[class*="delay-"] {
+  transition: none !important;
 }
 
 /* Card depth borders */
@@ -145,6 +384,15 @@ body {
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
+
+/* Shadow example for logo don'ts */
+.shadow-example {
+  text-shadow: 4px 6px 0px rgba(0, 0, 0, 0.4) !important;
+}
+
+:root.dark .shadow-example {
+  text-shadow: 4px 6px 0px rgba(255, 255, 255, 0.3) !important;
+}
 
 /* Code blocks */
 pre {

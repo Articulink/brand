@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Section } from "@/components/Section";
 import { useState } from "react";
 
@@ -13,8 +14,8 @@ export default function ModalsPage() {
     <div className="min-h-screen pb-16">
       {/* Header */}
       <header className="px-8 lg:px-16 py-12 lg:py-16 border-b border-border">
-        <nav className="text-sm text-text-secondary mb-4">
-          <span>Components</span>
+        <nav className="text-sm text-text-muted mb-4">
+          <Link href="/components" className="hover:text-tide transition-colors">Components</Link>
           <span className="mx-2">/</span>
           <span className="text-abyss">Modals</span>
         </nav>
@@ -34,7 +35,7 @@ export default function ModalsPage() {
         <div className="rounded-2xl bg-bg-card card-depth p-8">
           <button
             onClick={() => setShowBasicModal(true)}
-            className="px-6 py-3 rounded-xl bg-tide text-white font-semibold hover:bg-tide transition-colors"
+            className="px-6 py-3 rounded-2xl bg-tide border-b-4 border-[#0369c1] text-white font-bold uppercase tracking-wide hover:brightness-110 active:border-b-0 active:mt-1 transition-all"
           >
             Open Modal
           </button>
@@ -64,13 +65,13 @@ export default function ModalsPage() {
                 <div className="flex gap-3 justify-end">
                   <button
                     onClick={() => setShowBasicModal(false)}
-                    className="px-4 py-2 rounded-xl border border-border text-text-secondary hover:bg-bg-secondary transition-colors"
+                    className="px-5 py-2.5 rounded-2xl bg-white border-2 border-border border-b-4 text-tide font-bold uppercase tracking-wide text-sm hover:bg-blue-breeze active:border-b-2 active:mt-0.5 transition-all"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={() => setShowBasicModal(false)}
-                    className="px-4 py-2 rounded-xl bg-tide text-white font-semibold hover:bg-tide transition-colors"
+                    className="px-5 py-2.5 rounded-2xl bg-tide border-b-4 border-[#0369c1] text-white font-bold uppercase tracking-wide text-sm hover:brightness-110 active:border-b-0 active:mt-1 transition-all"
                   >
                     Confirm
                   </button>
@@ -95,7 +96,7 @@ export default function ModalsPage() {
         <div className="rounded-2xl bg-bg-card card-depth p-8">
           <button
             onClick={() => setShowConfirmModal(true)}
-            className="px-6 py-3 rounded-xl bg-error/10 text-error font-semibold hover:bg-error hover:text-white transition-colors"
+            className="px-6 py-3 rounded-2xl bg-error border-b-4 border-[#b91c1c] text-white font-bold uppercase tracking-wide hover:brightness-110 active:border-b-0 active:mt-1 transition-all"
           >
             Delete Item
           </button>
@@ -120,13 +121,13 @@ export default function ModalsPage() {
                 <div className="flex gap-3">
                   <button
                     onClick={() => setShowConfirmModal(false)}
-                    className="flex-1 px-4 py-2.5 rounded-xl border border-border text-text-secondary hover:bg-bg-secondary transition-colors font-medium"
+                    className="flex-1 px-5 py-2.5 rounded-2xl bg-white border-2 border-border border-b-4 text-tide font-bold uppercase tracking-wide text-sm hover:bg-blue-breeze active:border-b-2 active:mt-0.5 transition-all"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={() => setShowConfirmModal(false)}
-                    className="flex-1 px-4 py-2.5 rounded-xl bg-error text-white font-semibold hover:bg-red-600 transition-colors"
+                    className="flex-1 px-5 py-2.5 rounded-2xl bg-error border-b-4 border-[#b91c1c] text-white font-bold uppercase tracking-wide text-sm hover:brightness-110 active:border-b-0 active:mt-1 transition-all"
                   >
                     Delete
                   </button>
@@ -151,7 +152,7 @@ export default function ModalsPage() {
         <div className="rounded-2xl bg-bg-card card-depth p-8">
           <button
             onClick={() => setShowFormModal(true)}
-            className="px-6 py-3 rounded-xl bg-tide text-white font-semibold hover:bg-tide transition-colors flex items-center gap-2"
+            className="px-6 py-3 rounded-2xl bg-tide border-b-4 border-[#0369c1] text-white font-bold uppercase tracking-wide hover:brightness-110 active:border-b-0 active:mt-1 transition-all flex items-center gap-2"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
@@ -211,13 +212,13 @@ export default function ModalsPage() {
                 <div className="p-6 border-t border-border flex gap-3 justify-end">
                   <button
                     onClick={() => setShowFormModal(false)}
-                    className="px-4 py-2.5 rounded-xl border border-border text-text-secondary hover:bg-bg-secondary transition-colors font-medium"
+                    className="px-5 py-2.5 rounded-2xl bg-white border-2 border-border border-b-4 text-tide font-bold uppercase tracking-wide text-sm hover:bg-blue-breeze active:border-b-2 active:mt-0.5 transition-all"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={() => setShowFormModal(false)}
-                    className="px-4 py-2.5 rounded-xl bg-tide text-white font-semibold hover:bg-tide transition-colors"
+                    className="px-5 py-2.5 rounded-2xl bg-tide border-b-4 border-[#0369c1] text-white font-bold uppercase tracking-wide text-sm hover:brightness-110 active:border-b-0 active:mt-1 transition-all"
                   >
                     Add Client
                   </button>
@@ -236,7 +237,7 @@ export default function ModalsPage() {
         <div className="rounded-2xl bg-bg-card card-depth p-8">
           <button
             onClick={() => setShowDrawer(true)}
-            className="px-6 py-3 rounded-xl border-2 border-tide text-tide font-semibold hover:bg-tide hover:text-white transition-colors"
+            className="px-6 py-3 rounded-2xl bg-white border-2 border-border border-b-4 text-tide font-bold uppercase tracking-wide hover:bg-blue-breeze active:border-b-2 active:mt-0.5 transition-all"
           >
             Open Drawer
           </button>
@@ -269,7 +270,7 @@ export default function ModalsPage() {
                   <div className="p-6 border-t border-border">
                     <button
                       onClick={() => setShowDrawer(false)}
-                      className="w-full px-4 py-3 rounded-xl bg-tide text-white font-semibold hover:bg-tide transition-colors"
+                      className="w-full px-4 py-3 rounded-2xl bg-tide border-b-4 border-[#0369c1] text-white font-bold uppercase tracking-wide hover:brightness-110 active:border-b-0 active:mt-1 transition-all"
                     >
                       Done
                     </button>

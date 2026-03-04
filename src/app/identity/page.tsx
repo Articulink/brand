@@ -25,7 +25,6 @@ export default function IdentityPage() {
       <PageHeader
         title="Identity"
         description="Successfully represent Articulink with core brand elements and rules for usage."
-        color="bg-tide"
       />
 
       <div className="px-8 lg:px-16 py-12">

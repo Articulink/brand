@@ -76,7 +76,6 @@ export default function BrandPage() {
       <PageHeader
         title="Brand"
         description="The heart and soul of Articulink — who we are, what we believe, and how we show up."
-        color="bg-tide"
       />
 
       {/* Mission */}
@@ -96,7 +95,7 @@ export default function BrandPage() {
       {/* Tagline */}
       <Section title="Tagline" id="tagline">
         <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-2xl bg-tide p-8 lg:p-10">
+          <div className="rounded-2xl bg-tide border-b-[5px] border-[#0369c1] p-8 lg:p-10">
             <span className="text-xs font-semibold text-white/60 uppercase tracking-wider">Primary Tagline</span>
             <p className="font-display text-3xl lg:text-4xl font-bold text-white mt-3">
               Find Your Voice
@@ -202,7 +201,7 @@ export default function BrandPage() {
 
       {/* Brand Promise */}
       <Section title="Brand Promise" id="promise">
-        <div className="rounded-2xl bg-abyss p-8 lg:p-12">
+        <div className="rounded-2xl bg-tide border-b-[5px] border-[#0369c1] p-8 lg:p-12">
           <div className="max-w-2xl">
             <span className="text-xs font-semibold text-white/60 uppercase tracking-wider">What We Promise</span>
             <p className="font-display text-2xl lg:text-3xl font-bold text-white mt-4 leading-snug">

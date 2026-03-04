@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Section } from "@/components/Section";
 import { useState } from "react";
 
@@ -31,8 +32,8 @@ export default function TablesPage() {
     <div className="min-h-screen pb-16">
       {/* Header */}
       <header className="px-8 lg:px-16 py-12 lg:py-16 border-b border-border">
-        <nav className="text-sm text-text-secondary mb-4">
-          <span>Components</span>
+        <nav className="text-sm text-text-muted mb-4">
+          <Link href="/components" className="hover:text-tide transition-colors">Components</Link>
           <span className="mx-2">/</span>
           <span className="text-abyss">Tables</span>
         </nav>
@@ -278,7 +279,7 @@ export default function TablesPage() {
             <p className="text-sm text-text-secondary mb-6">
               Once you book your first session, it will appear here.
             </p>
-            <button className="px-6 py-3 rounded-xl bg-tide text-white font-semibold hover:bg-tide transition-colors">
+            <button className="px-6 py-3 rounded-2xl bg-tide border-b-4 border-[#0369c1] text-white font-bold uppercase tracking-wide hover:brightness-110 active:border-b-0 active:mt-1 transition-all">
               Book Appointment
             </button>
           </div>

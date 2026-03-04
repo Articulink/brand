@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Section } from "@/components/Section";
 
 export default function BadgesPage() {
@@ -7,8 +8,8 @@ export default function BadgesPage() {
     <div className="min-h-screen pb-16">
       {/* Header */}
       <header className="px-8 lg:px-16 py-12 lg:py-16 border-b border-border">
-        <nav className="text-sm text-text-secondary mb-4">
-          <span>Components</span>
+        <nav className="text-sm text-text-muted mb-4">
+          <Link href="/components" className="hover:text-tide transition-colors">Components</Link>
           <span className="mx-2">/</span>
           <span className="text-abyss">Badges</span>
         </nav>

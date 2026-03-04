@@ -1,18 +1,21 @@
 "use client";
 
+import Link from "next/link";
 import { Section } from "@/components/Section";
 import { useState } from "react";
 
 export default function FormsPage() {
   const [checked, setChecked] = useState(false);
   const [selectedRadio, setSelectedRadio] = useState("option1");
+  const [emailNotifications, setEmailNotifications] = useState(true);
+  const [pushNotifications, setPushNotifications] = useState(false);
 
   return (
     <div className="min-h-screen pb-16">
       {/* Header */}
       <header className="px-8 lg:px-16 py-12 lg:py-16 border-b border-border">
-        <nav className="text-sm text-text-secondary mb-4">
-          <span>Components</span>
+        <nav className="text-sm text-text-muted mb-4">
+          <Link href="/components" className="hover:text-tide transition-colors">Components</Link>
           <span className="mx-2">/</span>
           <span className="text-abyss">Forms</span>
         </nav>
@@ -246,28 +249,51 @@ export default function FormsPage() {
       {/* Toggle Switch */}
       <Section title="Toggle Switch" id="toggle">
         <p className="text-text-secondary mb-8 max-w-2xl">
-          Toggle switches for binary on/off settings.
+          Toggle switches for binary on/off settings. Click to toggle.
         </p>
         <div className="rounded-2xl bg-bg-card card-depth p-8">
           <div className="space-y-6">
-            <label className="flex items-center justify-between cursor-pointer">
+            <button
+              type="button"
+              onClick={() => setEmailNotifications(!emailNotifications)}
+              className="w-full flex items-center justify-between"
+            >
               <span className="text-abyss">Email notifications</span>
-              <div className="relative">
-                <input type="checkbox" className="peer sr-only" defaultChecked />
-                <div className="w-12 h-7 bg-border rounded-full peer-checked:bg-tide transition-colors">
-                  <div className="absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow-md peer-checked:translate-x-5 transition-transform" />
-                </div>
+              <div
+                className={`relative w-14 h-8 rounded-full transition-colors ${
+                  emailNotifications ? "bg-tide" : "bg-border"
+                }`}
+              >
+                <div
+                  className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-md transition-all ${
+                    emailNotifications ? "left-7" : "left-1"
+                  }`}
+                />
               </div>
-            </label>
-            <label className="flex items-center justify-between cursor-pointer">
+            </button>
+            <button
+              type="button"
+              onClick={() => setPushNotifications(!pushNotifications)}
+              className="w-full flex items-center justify-between"
+            >
               <span className="text-abyss">Push notifications</span>
-              <div className="relative">
-                <input type="checkbox" className="peer sr-only" />
-                <div className="w-12 h-7 bg-border rounded-full peer-checked:bg-tide transition-colors">
-                  <div className="absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow-md peer-checked:translate-x-5 transition-transform" />
-                </div>
+              <div
+                className={`relative w-14 h-8 rounded-full transition-colors ${
+                  pushNotifications ? "bg-tide" : "bg-border"
+                }`}
+              >
+                <div
+                  className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-md transition-all ${
+                    pushNotifications ? "left-7" : "left-1"
+                  }`}
+                />
               </div>
-            </label>
+            </button>
+          </div>
+          <div className="mt-6 bg-bg-secondary rounded-xl p-4">
+            <p className="text-sm text-text-secondary">
+              <strong className="text-abyss">Current state:</strong> Email {emailNotifications ? "ON" : "OFF"}, Push {pushNotifications ? "ON" : "OFF"}
+            </p>
           </div>
         </div>
       </Section>
@@ -310,10 +336,10 @@ export default function FormsPage() {
               />
             </div>
             <div className="flex gap-4">
-              <button type="submit" className="px-6 py-3 rounded-xl bg-tide text-white font-semibold shadow-lg shadow-tide/25 hover:bg-tide transition-colors">
+              <button type="submit" className="px-6 py-3 rounded-2xl bg-tide border-b-4 border-[#0369c1] text-white font-bold uppercase tracking-wide hover:brightness-110 active:border-b-0 active:mt-1 transition-all">
                 Submit
               </button>
-              <button type="button" className="px-6 py-3 rounded-xl border-2 border-tide text-tide font-semibold hover:bg-tide hover:text-white transition-colors">
+              <button type="button" className="px-6 py-3 rounded-2xl bg-white border-2 border-border border-b-4 text-tide font-bold uppercase tracking-wide hover:bg-blue-breeze active:border-b-2 active:mt-0.5 transition-all">
                 Cancel
               </button>
             </div>

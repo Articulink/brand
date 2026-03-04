@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { LogoWithSize } from "@/components/Logo";
 
 const categories = [
   {
@@ -41,14 +41,7 @@ export default function Home() {
       <section className="px-8 lg:px-16 py-16 lg:py-24">
         <div className="max-w-4xl">
           <div className="mb-8">
-            <Image
-              src="/images/logo.svg"
-              alt="Articulink"
-              width={300}
-              height={75}
-              className="h-14 lg:h-16 w-auto"
-              priority
-            />
+            <LogoWithSize variant="default" size="text-5xl lg:text-6xl" />
           </div>
           <h1 className="font-display text-4xl lg:text-6xl font-extrabold text-abyss leading-tight">
             Brand Guidelines

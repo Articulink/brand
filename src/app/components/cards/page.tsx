@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Section } from "@/components/Section";
 
 export default function CardsPage() {
@@ -5,8 +6,8 @@ export default function CardsPage() {
     <div className="min-h-screen pb-16">
       {/* Header */}
       <header className="px-8 lg:px-16 py-12 lg:py-16 border-b border-border">
-        <nav className="text-sm text-text-secondary mb-4">
-          <span>Components</span>
+        <nav className="text-sm text-text-muted mb-4">
+          <Link href="/components" className="hover:text-tide transition-colors">Components</Link>
           <span className="mx-2">/</span>
           <span className="text-abyss">Cards</span>
         </nav>
@@ -220,7 +221,7 @@ export default function CardsPage() {
         <p className="text-text-secondary mb-8 max-w-2xl">
           Cards styled for dark background contexts.
         </p>
-        <div className="rounded-2xl bg-abyss p-8">
+        <div className="rounded-2xl bg-tide border-b-[5px] border-[#0369c1] p-8">
           <div className="grid gap-6 md:grid-cols-3">
             <div className="rounded-2xl bg-white/10 backdrop-blur p-6 border border-white/10">
               <h3 className="font-display text-lg font-bold text-white">Dark Card</h3>
@@ -257,7 +258,8 @@ export default function CardsPage() {
             <ul className="space-y-2 text-sm text-text-secondary">
               <li>Use consistent padding (p-6 standard)</li>
               <li>Apply card-depth for depth</li>
-              <li>Group related content within cards</li>
+              <li>Full border when card matches its background color</li>
+              <li>Bottom border only when card contrasts its background</li>
               <li>Use hover states for interactive cards</li>
               <li>Maintain visual hierarchy within cards</li>
             </ul>

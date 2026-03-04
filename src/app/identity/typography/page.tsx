@@ -2,6 +2,7 @@
 
 import { Section } from "@/components/Section";
 import { useState } from "react";
+import Link from "next/link";
 
 const typeScale = [
   { name: "Display", size: "60px", class: "text-6xl font-display font-extrabold" },
@@ -127,36 +128,36 @@ function FontShowcase({
 }
 
 export default function TypographyPage() {
-  const [leagueDarkMode, setLeagueDarkMode] = useState(false);
+  const [nunitoDarkMode, setNunitoDarkMode] = useState(false);
   const [poppinsDarkMode, setPoppinsDarkMode] = useState(false);
 
   return (
     <div className="min-h-screen pb-12">
       {/* Header */}
-      <header className="px-6 lg:px-12 py-8 lg:py-12 border-b border-border">
-        <nav className="text-sm text-text-muted mb-3">
-          <span>Identity</span>
+      <header className="px-8 lg:px-16 py-12 lg:py-16 border-b border-border">
+        <nav className="text-sm text-text-muted mb-4">
+          <Link href="/identity" className="hover:text-tide transition-colors">Identity</Link>
           <span className="mx-2">/</span>
           <span className="text-abyss">Typography</span>
         </nav>
-        <h1 className="font-display text-3xl lg:text-4xl font-extrabold text-abyss">
+        <h1 className="font-display text-4xl lg:text-5xl font-extrabold text-abyss">
           Typography
         </h1>
-        <p className="mt-2 text-base text-text-secondary max-w-xl">
+        <p className="mt-3 text-lg text-text-secondary max-w-2xl">
           Our typefaces are friendly, clear, and professional.
         </p>
       </header>
 
-      {/* League Spartan */}
-      <Section id="league-spartan">
+      {/* Nunito */}
+      <Section id="nunito">
         <FontShowcase
           fontClass="font-display"
-          fontName="League Spartan"
-          fontLink="https://fonts.google.com/specimen/League+Spartan"
-          description="Our headline typeface. Use only for headlines and titles. Bold, geometric letterforms that convey confidence and clarity."
+          fontName="Nunito"
+          fontLink="https://fonts.google.com/specimen/Nunito"
+          description="Our headline typeface. Use only for headlines and titles. Rounded, friendly letterforms that convey warmth and approachability."
           codeTags={["font-display"]}
-          darkMode={leagueDarkMode}
-          setDarkMode={setLeagueDarkMode}
+          darkMode={nunitoDarkMode}
+          setDarkMode={setNunitoDarkMode}
         />
       </Section>
 
@@ -228,16 +229,16 @@ export default function TypographyPage() {
       {/* Font Usage */}
       <Section title="Font Usage" id="usage">
         <div className="space-y-4">
-          {/* League Spartan Usage */}
+          {/* Nunito Usage */}
           <div className="rounded-xl bg-bg-card card-depth p-5 lg:p-6">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-tide flex items-center justify-center flex-shrink-0">
                 <span className="font-display text-xl font-bold text-white">Aa</span>
               </div>
               <div className="flex-1">
-                <h3 className="font-display text-lg font-bold text-abyss mb-2">League Spartan</h3>
+                <h3 className="font-display text-lg font-bold text-abyss mb-2">Nunito</h3>
                 <p className="text-sm text-text-secondary mb-3">
-                  Use <strong>only</strong> for headlines. Its bold geometric forms create impact and establish visual hierarchy. Never use for body text or UI elements.
+                  Use <strong>only</strong> for headlines. Its rounded, friendly forms create warmth and establish visual hierarchy. Never use for body text or UI elements.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-2 py-1 rounded-lg bg-tide/10 text-xs text-tide font-medium">Page titles</span>
@@ -252,21 +253,21 @@ export default function TypographyPage() {
           {/* Poppins Usage */}
           <div className="rounded-xl bg-bg-card card-depth p-5 lg:p-6">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-lagoon flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-tide flex items-center justify-center flex-shrink-0">
                 <span className="font-sans text-xl font-medium text-white">Aa</span>
               </div>
               <div className="flex-1">
                 <h3 className="font-display text-lg font-bold text-abyss mb-2">Poppins</h3>
                 <p className="text-sm text-text-secondary mb-3">
-                  Use for <strong>everything else</strong>. Body text, UI elements, buttons, labels, navigation, and any text that isn&apos;t a headline. Its geometric design pairs perfectly with League Spartan.
+                  Use for <strong>everything else</strong>. Body text, UI elements, buttons, labels, navigation, and any text that isn&apos;t a headline. Its geometric design pairs perfectly with Nunito.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-2 py-1 rounded-lg bg-blue-lagoon/10 text-xs text-blue-lagoon font-medium">Body text</span>
-                  <span className="px-2 py-1 rounded-lg bg-blue-lagoon/10 text-xs text-blue-lagoon font-medium">Buttons</span>
-                  <span className="px-2 py-1 rounded-lg bg-blue-lagoon/10 text-xs text-blue-lagoon font-medium">Form labels</span>
-                  <span className="px-2 py-1 rounded-lg bg-blue-lagoon/10 text-xs text-blue-lagoon font-medium">Navigation</span>
-                  <span className="px-2 py-1 rounded-lg bg-blue-lagoon/10 text-xs text-blue-lagoon font-medium">Captions</span>
-                  <span className="px-2 py-1 rounded-lg bg-blue-lagoon/10 text-xs text-blue-lagoon font-medium">Logo wordmark</span>
+                  <span className="px-2 py-1 rounded-lg bg-tide/10 text-xs text-tide font-medium">Body text</span>
+                  <span className="px-2 py-1 rounded-lg bg-tide/10 text-xs text-tide font-medium">Buttons</span>
+                  <span className="px-2 py-1 rounded-lg bg-tide/10 text-xs text-tide font-medium">Form labels</span>
+                  <span className="px-2 py-1 rounded-lg bg-tide/10 text-xs text-tide font-medium">Navigation</span>
+                  <span className="px-2 py-1 rounded-lg bg-tide/10 text-xs text-tide font-medium">Captions</span>
+                  <span className="px-2 py-1 rounded-lg bg-tide/10 text-xs text-tide font-medium">Logo wordmark</span>
                 </div>
               </div>
             </div>
@@ -469,7 +470,7 @@ export default function TypographyPage() {
               <span className="font-semibold text-abyss">Do</span>
             </div>
             <ul className="space-y-2 text-sm text-text-secondary">
-              <li>• Use League Spartan <strong>only</strong> for headlines</li>
+              <li>• Use Nunito <strong>only</strong> for headlines</li>
               <li>• Use Poppins for everything else</li>
               <li>• Maintain clear visual hierarchy with size and weight</li>
               <li>• Keep body text at 16px or larger</li>
@@ -487,7 +488,7 @@ export default function TypographyPage() {
               <span className="font-semibold text-abyss">Don&apos;t</span>
             </div>
             <ul className="space-y-2 text-sm text-text-secondary">
-              <li>• Use League Spartan for anything other than headlines</li>
+              <li>• Use Nunito for anything other than headlines</li>
               <li>• Mix more than 2-3 font weights on a page</li>
               <li>• Set text smaller than 12px</li>
               <li>• Use light weights (300 or below)</li>

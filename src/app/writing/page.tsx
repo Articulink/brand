@@ -34,7 +34,6 @@ export default function WritingPage() {
       <PageHeader
         title="Writing"
         description="Produce content in the spirit of Articulink and ensure consistency across all mediums."
-        color="bg-sunshine"
       />
 
       {/* Brand Voice */}

@@ -1,8 +1,22 @@
 "use client";
 
-import { PageHeader } from "@/components/PageHeader";
+import Link from "next/link";
 import { Section } from "@/components/Section";
 import { useState } from "react";
+
+function PlayButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className="w-7 h-7 rounded-lg bg-tide hover:bg-surf flex items-center justify-center transition-colors"
+      aria-label="Play animation"
+    >
+      <svg className="w-3 h-3 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </button>
+  );
+}
 
 const easings = [
   { name: "ease-out", value: "cubic-bezier(0, 0, 0.2, 1)", use: "Enter animations" },
@@ -19,56 +33,34 @@ const durations = [
   { name: "slower", value: "700ms", use: "Page transitions" },
 ];
 
-function AnimationDemo({
-  name,
-  className,
-  trigger
-}: {
-  name: string;
-  className: string;
-  trigger: "hover" | "click";
-}) {
-  const [active, setActive] = useState(false);
-
-  return (
-    <div className="rounded-xl bg-bg-card card-depth p-5">
-      <div className="flex items-center justify-between mb-4">
-        <code className="text-sm text-tide">{name}</code>
-        {trigger === "click" && (
-          <button
-            onClick={() => setActive(!active)}
-            className="text-xs text-text-muted hover:text-tide"
-          >
-            {active ? "Reset" : "Play"}
-          </button>
-        )}
-      </div>
-      <div className="h-24 bg-bg-secondary rounded-lg flex items-center justify-center">
-        <div
-          className={`w-12 h-12 rounded-xl bg-tide ${className} ${
-            trigger === "click" && active ? "animate" : ""
-          }`}
-          onMouseEnter={trigger === "hover" ? () => setActive(true) : undefined}
-          onMouseLeave={trigger === "hover" ? () => setActive(false) : undefined}
-          style={trigger === "click" && active ? { animationPlayState: "running" } : {}}
-        />
-      </div>
-    </div>
-  );
-}
-
 export default function MotionPage() {
   const [showFadeIn, setShowFadeIn] = useState(false);
   const [showSlide, setShowSlide] = useState(false);
   const [showScale, setShowScale] = useState(false);
+  const [showStagger, setShowStagger] = useState(false);
+  const [durationPlaying, setDurationPlaying] = useState<string | null>(null);
+  const [easingPlaying, setEasingPlaying] = useState<string | null>(null);
+  const [microScale, setMicroScale] = useState(false);
+  const [microLift, setMicroLift] = useState(false);
+  const [microPress, setMicroPress] = useState(false);
+  const [microRotate, setMicroRotate] = useState(false);
 
   return (
     <div className="min-h-screen pb-16">
-      <PageHeader
-        title="Motion"
-        description="Animation brings interfaces to life while guiding attention and providing feedback."
-        color="bg-coral"
-      />
+      {/* Header */}
+      <header className="px-8 lg:px-16 py-12 lg:py-16 border-b border-border">
+        <nav className="text-sm text-text-muted mb-4">
+          <Link href="/foundations" className="hover:text-tide transition-colors">Foundations</Link>
+          <span className="mx-2">/</span>
+          <span className="text-abyss">Motion</span>
+        </nav>
+        <h1 className="font-display text-4xl lg:text-5xl font-extrabold text-abyss">
+          Motion
+        </h1>
+        <p className="mt-3 text-lg text-text-secondary max-w-2xl">
+          Animation brings interfaces to life while guiding attention and providing feedback.
+        </p>
+      </header>
 
       {/* Principles */}
       <Section title="Motion Principles" id="principles">
@@ -126,14 +118,22 @@ export default function MotionPage() {
                 <span className="text-text-muted w-16">{duration.value}</span>
                 <span className="text-text-secondary text-sm hidden sm:block">{duration.use}</span>
               </div>
-              <div className="w-32 h-2 bg-bg-secondary rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-tide rounded-full transition-all hover:w-full"
-                  style={{
-                    width: "20%",
-                    transitionDuration: duration.value === "0ms" ? "150ms" : duration.value,
+              <div className="flex items-center gap-3">
+                <PlayButton
+                  onClick={() => {
+                    setDurationPlaying(duration.name);
+                    setTimeout(() => setDurationPlaying(null), 1000);
                   }}
                 />
+                <div className="w-32 h-2 bg-bg-secondary rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-tide rounded-full"
+                    style={{
+                      width: durationPlaying === duration.name ? "100%" : "20%",
+                      transition: `width ${duration.value === "0ms" ? "150ms" : duration.value} ease-out`,
+                    }}
+                  />
+                </div>
               </div>
             </div>
           ))}
@@ -142,27 +142,32 @@ export default function MotionPage() {
 
       {/* Easing */}
       <Section title="Easing" id="easing">
-        <p className="text-text-secondary mb-8 max-w-2xl">
+        <p className="text-text-secondary mb-6 max-w-2xl">
           Easing curves define the acceleration of animations. Choose based on the animation type.
         </p>
 
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-3 grid-cols-2 lg:grid-cols-4">
           {easings.map((easing) => (
-            <div key={easing.name} className="rounded-xl bg-bg-card card-depth p-5">
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <code className="text-tide font-semibold">{easing.name}</code>
-                  <p className="text-xs text-text-muted mt-1">{easing.use}</p>
-                </div>
-                <code className="text-xs text-text-muted hidden sm:block">{easing.value}</code>
-              </div>
-              <div className="h-16 bg-bg-secondary rounded-lg flex items-center px-4">
-                <div
-                  className="w-8 h-8 rounded-lg bg-tide hover:translate-x-[calc(100%-2rem)] transition-transform duration-500"
-                  style={{ transitionTimingFunction: easing.value }}
+            <div key={easing.name} className="rounded-xl bg-bg-card card-depth p-4">
+              <div className="flex items-center justify-between mb-3">
+                <code className="text-tide font-semibold text-sm">{easing.name}</code>
+                <PlayButton
+                  onClick={() => {
+                    setEasingPlaying(easing.name);
+                    setTimeout(() => setEasingPlaying(null), 1500);
+                  }}
                 />
               </div>
-              <p className="text-xs text-text-muted mt-3 text-center">Hover to see easing</p>
+              <div className="h-10 bg-bg-secondary rounded-lg flex items-center justify-start px-2 overflow-hidden w-20 mx-auto">
+                <div
+                  className="w-6 h-6 rounded bg-tide shrink-0"
+                  style={{
+                    transform: easingPlaying === easing.name ? "translateX(40px)" : "translateX(0)",
+                    transition: `transform 500ms ${easing.value}`,
+                  }}
+                />
+              </div>
+              <p className="text-xs text-text-muted mt-2 text-center">{easing.use}</p>
             </div>
           ))}
         </div>
@@ -179,15 +184,13 @@ export default function MotionPage() {
           <div className="rounded-xl bg-bg-card card-depth p-5">
             <div className="flex items-center justify-between mb-4">
               <code className="text-sm text-tide">animate-fade-in</code>
-              <button
+              <PlayButton
                 onClick={() => {
                   setShowFadeIn(false);
                   setTimeout(() => setShowFadeIn(true), 50);
+                  setTimeout(() => setShowFadeIn(false), 1500);
                 }}
-                className="text-xs text-text-muted hover:text-tide"
-              >
-                Play
-              </button>
+              />
             </div>
             <div className="h-24 bg-bg-secondary rounded-lg flex items-center justify-center">
               {showFadeIn && (
@@ -204,15 +207,13 @@ export default function MotionPage() {
           <div className="rounded-xl bg-bg-card card-depth p-5">
             <div className="flex items-center justify-between mb-4">
               <code className="text-sm text-tide">animate-fade-in-up</code>
-              <button
+              <PlayButton
                 onClick={() => {
                   setShowSlide(false);
                   setTimeout(() => setShowSlide(true), 50);
+                  setTimeout(() => setShowSlide(false), 1500);
                 }}
-                className="text-xs text-text-muted hover:text-tide"
-              >
-                Play
-              </button>
+              />
             </div>
             <div className="h-24 bg-bg-secondary rounded-lg flex items-center justify-center overflow-hidden">
               {showSlide && (
@@ -229,15 +230,13 @@ export default function MotionPage() {
           <div className="rounded-xl bg-bg-card card-depth p-5">
             <div className="flex items-center justify-between mb-4">
               <code className="text-sm text-tide">animate-scale-in</code>
-              <button
+              <PlayButton
                 onClick={() => {
                   setShowScale(false);
                   setTimeout(() => setShowScale(true), 50);
+                  setTimeout(() => setShowScale(false), 1500);
                 }}
-                className="text-xs text-text-muted hover:text-tide"
-              >
-                Play
-              </button>
+              />
             </div>
             <div className="h-24 bg-bg-secondary rounded-lg flex items-center justify-center">
               {showScale && (
@@ -253,17 +252,33 @@ export default function MotionPage() {
 
         {/* Stagger Delays */}
         <div className="mt-8 rounded-xl bg-bg-card card-depth p-6">
-          <h3 className="font-semibold text-abyss mb-4">Stagger Delays</h3>
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-semibold text-abyss">Stagger Delays</h3>
+            <PlayButton
+              onClick={() => {
+                setShowStagger(false);
+                setTimeout(() => setShowStagger(true), 50);
+                setTimeout(() => setShowStagger(false), 1500);
+              }}
+            />
+          </div>
           <p className="text-sm text-text-secondary mb-6">
             Use delay classes to create staggered entrance animations for lists.
           </p>
           <div className="flex gap-3">
-            {["delay-100", "delay-200", "delay-300", "delay-400"].map((delay, idx) => (
-              <div
-                key={delay}
-                className={`w-12 h-12 rounded-xl bg-tide animate-fade-in-up ${delay}`}
-                style={{ opacity: 0, animationFillMode: "forwards" }}
-              />
+            {["delay-100", "delay-200", "delay-300", "delay-400"].map((delay) => (
+              showStagger ? (
+                <div
+                  key={delay}
+                  className={`w-12 h-12 rounded-xl bg-tide animate-fade-in-up ${delay}`}
+                  style={{ opacity: 0, animationFillMode: "forwards" }}
+                />
+              ) : (
+                <div
+                  key={delay}
+                  className="w-12 h-12 rounded-xl bg-tide/20"
+                />
+              )
             ))}
           </div>
           <div className="flex gap-3 mt-3">
@@ -283,42 +298,70 @@ export default function MotionPage() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {/* Hover Scale */}
           <div className="rounded-xl bg-bg-card card-depth p-5">
-            <code className="text-xs text-tide">hover:scale-105</code>
-            <div className="h-24 bg-bg-secondary rounded-lg flex items-center justify-center mt-4">
-              <div className="w-12 h-12 rounded-xl bg-tide transition-transform hover:scale-105 cursor-pointer" />
+            <code className="text-xs text-tide block mb-4">scale-105</code>
+            <div className="h-24 bg-bg-secondary rounded-lg flex items-center justify-center">
+              <button
+                onClick={() => {
+                  setMicroScale(true);
+                  setTimeout(() => setMicroScale(false), 300);
+                }}
+                className="w-12 h-12 rounded-xl bg-tide hover:bg-surf transition-all duration-150 cursor-pointer"
+                style={{ transform: microScale ? "scale(1.05)" : "scale(1)" }}
+              />
             </div>
-            <p className="text-xs text-text-muted mt-3 text-center">Card/button hover</p>
+            <p className="text-xs text-text-muted mt-3 text-center">Click to see effect</p>
           </div>
 
           {/* Hover Lift */}
           <div className="rounded-xl bg-bg-card card-depth p-5">
-            <code className="text-xs text-tide">hover:-translate-y-1</code>
-            <div className="h-24 bg-bg-secondary rounded-lg flex items-center justify-center mt-4">
-              <div className="w-12 h-12 rounded-xl bg-tide transition-transform hover:-translate-y-1 cursor-pointer shadow-lg" />
+            <code className="text-xs text-tide block mb-4">-translate-y-1</code>
+            <div className="h-24 bg-bg-secondary rounded-lg flex items-center justify-center">
+              <button
+                onClick={() => {
+                  setMicroLift(true);
+                  setTimeout(() => setMicroLift(false), 300);
+                }}
+                className="w-12 h-12 rounded-xl bg-tide hover:bg-surf transition-all duration-150 shadow-lg cursor-pointer"
+                style={{ transform: microLift ? "translateY(-4px)" : "translateY(0)" }}
+              />
             </div>
-            <p className="text-xs text-text-muted mt-3 text-center">Lift on hover</p>
+            <p className="text-xs text-text-muted mt-3 text-center">Click to see effect</p>
           </div>
 
           {/* Press */}
           <div className="rounded-xl bg-bg-card card-depth p-5">
-            <code className="text-xs text-tide">active:scale-95</code>
-            <div className="h-24 bg-bg-secondary rounded-lg flex items-center justify-center mt-4">
-              <button className="w-12 h-12 rounded-xl bg-tide transition-transform active:scale-95" />
+            <code className="text-xs text-tide block mb-4">scale-95</code>
+            <div className="h-24 bg-bg-secondary rounded-lg flex items-center justify-center">
+              <button
+                onClick={() => {
+                  setMicroPress(true);
+                  setTimeout(() => setMicroPress(false), 150);
+                }}
+                className="w-12 h-12 rounded-xl bg-tide hover:bg-surf transition-all duration-100 cursor-pointer"
+                style={{ transform: microPress ? "scale(0.95)" : "scale(1)" }}
+              />
             </div>
-            <p className="text-xs text-text-muted mt-3 text-center">Button press</p>
+            <p className="text-xs text-text-muted mt-3 text-center">Click to see effect</p>
           </div>
 
           {/* Rotate */}
           <div className="rounded-xl bg-bg-card card-depth p-5">
-            <code className="text-xs text-tide">hover:rotate-90</code>
-            <div className="h-24 bg-bg-secondary rounded-lg flex items-center justify-center mt-4">
-              <div className="w-12 h-12 rounded-xl bg-tide transition-transform hover:rotate-90 cursor-pointer flex items-center justify-center">
+            <code className="text-xs text-tide block mb-4">rotate-90</code>
+            <div className="h-24 bg-bg-secondary rounded-lg flex items-center justify-center">
+              <button
+                onClick={() => {
+                  setMicroRotate(true);
+                  setTimeout(() => setMicroRotate(false), 500);
+                }}
+                className="w-12 h-12 rounded-xl bg-tide hover:bg-surf transition-all duration-300 cursor-pointer flex items-center justify-center"
+                style={{ transform: microRotate ? "rotate(90deg)" : "rotate(0deg)" }}
+              >
                 <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
-              </div>
+              </button>
             </div>
-            <p className="text-xs text-text-muted mt-3 text-center">Icon rotation</p>
+            <p className="text-xs text-text-muted mt-3 text-center">Click to see effect</p>
           </div>
         </div>
       </Section>

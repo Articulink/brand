@@ -1,6 +1,6 @@
 "use client";
 
-import { PageHeader } from "@/components/PageHeader";
+import Link from "next/link";
 import { Section } from "@/components/Section";
 
 const contrastExamples = [
@@ -22,11 +22,20 @@ const focusStates = [
 export default function AccessibilityPage() {
   return (
     <div className="min-h-screen pb-16">
-      <PageHeader
-        title="Accessibility"
-        description="Building inclusive experiences that work for everyone."
-        color="bg-success"
-      />
+      {/* Header */}
+      <header className="px-8 lg:px-16 py-12 lg:py-16 border-b border-border">
+        <nav className="text-sm text-text-muted mb-4">
+          <Link href="/foundations" className="hover:text-tide transition-colors">Foundations</Link>
+          <span className="mx-2">/</span>
+          <span className="text-abyss">Accessibility</span>
+        </nav>
+        <h1 className="font-display text-4xl lg:text-5xl font-extrabold text-abyss">
+          Accessibility
+        </h1>
+        <p className="mt-3 text-lg text-text-secondary max-w-2xl">
+          Building inclusive experiences that work for everyone.
+        </p>
+      </header>
 
       {/* Principles */}
       <Section title="Principles" id="principles">
@@ -145,7 +154,7 @@ export default function AccessibilityPage() {
               </div>
               <div className="flex items-center gap-3">
                 {state.name === "Buttons" && (
-                  <button className="px-4 py-2 rounded-xl bg-tide text-white font-medium focus:ring-2 focus:ring-tide focus:ring-offset-2 outline-none">
+                  <button className="px-5 py-2.5 rounded-2xl bg-tide border-b-4 border-[#0369c1] text-white font-bold uppercase tracking-wide text-sm hover:brightness-110 active:border-b-0 active:mt-1 transition-all focus:ring-2 focus:ring-tide focus:ring-offset-2 outline-none">
                     Focus me
                   </button>
                 )}

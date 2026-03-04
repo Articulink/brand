@@ -6,7 +6,7 @@ const sections = [
     name: "Spacing & Layout",
     href: "/foundations/spacing",
     description: "Grid system, spacing scale, breakpoints, and border radius.",
-    color: "bg-blue-lagoon",
+    color: "bg-tide",
   },
   {
     name: "Accessibility",
@@ -28,10 +28,9 @@ export default function FoundationsPage() {
       <PageHeader
         title="Foundations"
         description="The underlying principles and systems that make our design consistent and accessible."
-        color="bg-abyss"
       />
 
-      <div className="px-6 lg:px-12 py-12">
+      <div className="px-8 lg:px-16 py-12">
         <div className="grid gap-4 md:grid-cols-3">
           {sections.map((section) => (
             <Link

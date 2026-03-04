@@ -1,6 +1,6 @@
 "use client";
 
-import { PageHeader } from "@/components/PageHeader";
+import Link from "next/link";
 import { Section } from "@/components/Section";
 import { useState } from "react";
 
@@ -62,11 +62,20 @@ function CopyButton({ text }: { text: string }) {
 export default function SpacingPage() {
   return (
     <div className="min-h-screen pb-16">
-      <PageHeader
-        title="Spacing & Layout"
-        description="Consistent spacing creates visual harmony and improves readability."
-        color="bg-blue-lagoon"
-      />
+      {/* Header */}
+      <header className="px-8 lg:px-16 py-12 lg:py-16 border-b border-border">
+        <nav className="text-sm text-text-muted mb-4">
+          <Link href="/foundations" className="hover:text-tide transition-colors">Foundations</Link>
+          <span className="mx-2">/</span>
+          <span className="text-abyss">Spacing & Layout</span>
+        </nav>
+        <h1 className="font-display text-4xl lg:text-5xl font-extrabold text-abyss">
+          Spacing & Layout
+        </h1>
+        <p className="mt-3 text-lg text-text-secondary max-w-2xl">
+          Consistent spacing creates visual harmony and improves readability.
+        </p>
+      </header>
 
       {/* Spacing Scale */}
       <Section title="Spacing Scale" id="scale">

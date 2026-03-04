@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Section } from "@/components/Section";
 import { useState } from "react";
 
@@ -11,8 +12,8 @@ export default function NavigationPage() {
     <div className="min-h-screen pb-16">
       {/* Header */}
       <header className="px-8 lg:px-16 py-12 lg:py-16 border-b border-border">
-        <nav className="text-sm text-text-secondary mb-4">
-          <span>Components</span>
+        <nav className="text-sm text-text-muted mb-4">
+          <Link href="/components" className="hover:text-tide transition-colors">Components</Link>
           <span className="mx-2">/</span>
           <span className="text-abyss">Navigation</span>
         </nav>
@@ -46,7 +47,7 @@ export default function NavigationPage() {
                 <button className="hidden md:block px-4 py-2 text-white/90 hover:text-white text-sm font-medium transition-colors">
                   Log In
                 </button>
-                <button className="px-5 py-2.5 rounded-full bg-sunshine text-abyss text-sm font-semibold hover:brightness-110 transition-all">
+                <button className="px-5 py-2.5 rounded-2xl bg-sunshine border-b-4 border-[#d4a90e] text-abyss text-sm font-bold uppercase tracking-wide hover:brightness-110 active:border-b-0 active:mt-1 transition-all">
                   Get Started
                 </button>
               </div>

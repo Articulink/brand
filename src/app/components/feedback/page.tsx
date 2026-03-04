@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Section } from "@/components/Section";
 
 export default function FeedbackPage() {
@@ -7,8 +8,8 @@ export default function FeedbackPage() {
     <div className="min-h-screen pb-16">
       {/* Header */}
       <header className="px-8 lg:px-16 py-12 lg:py-16 border-b border-border">
-        <nav className="text-sm text-text-secondary mb-4">
-          <span>Components</span>
+        <nav className="text-sm text-text-muted mb-4">
+          <Link href="/components" className="hover:text-tide transition-colors">Components</Link>
           <span className="mx-2">/</span>
           <span className="text-abyss">Feedback</span>
         </nav>
@@ -182,7 +183,7 @@ export default function FeedbackPage() {
 
             {/* Button with spinner */}
             <div className="text-center">
-              <button className="px-6 py-3 rounded-xl bg-tide text-white font-semibold flex items-center gap-2 opacity-75 cursor-wait">
+              <button className="px-6 py-3 rounded-2xl bg-tide border-b-4 border-[#0369c1] text-white font-bold uppercase tracking-wide flex items-center gap-2 opacity-75 cursor-wait">
                 <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
@@ -347,7 +348,7 @@ export default function FeedbackPage() {
             <p className="text-sm text-text-secondary mb-4">
               Try adjusting your search or filters.
             </p>
-            <button className="px-4 py-2 rounded-xl border border-border text-text-secondary hover:bg-bg-secondary transition-colors text-sm font-medium">
+            <button className="px-5 py-2.5 rounded-2xl bg-white border-2 border-border border-b-4 text-tide text-sm font-bold uppercase tracking-wide hover:bg-blue-breeze active:border-b-2 active:mt-0.5 transition-all">
               Clear filters
             </button>
           </div>

@@ -49,7 +49,7 @@ const downloads = [
 ];
 
 const fonts = [
-  { name: "League Spartan", type: "Headlines", url: "https://fonts.google.com/specimen/League+Spartan" },
+  { name: "Nunito", type: "Headlines", url: "https://fonts.google.com/specimen/Nunito" },
   { name: "Poppins", type: "Everything Else", url: "https://fonts.google.com/specimen/Poppins" },
 ];
 
@@ -59,7 +59,6 @@ export default function ResourcesPage() {
       <PageHeader
         title="Resources"
         description="Logos, fact sheets, images, and all the other downloadables you need."
-        color="bg-tide"
       />
 
       {/* Downloads */}
@@ -133,7 +132,7 @@ export default function ResourcesPage() {
 
       {/* Brand Kit */}
       <Section title="Complete Brand Kit" id="kit">
-        <div className="rounded-2xl bg-tide p-8 lg:p-12">
+        <div className="rounded-2xl bg-tide border-b-[5px] border-[#0369c1] p-8 lg:p-12">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div>
               <h3 className="font-display text-2xl lg:text-3xl font-bold text-white">
@@ -143,7 +142,7 @@ export default function ResourcesPage() {
                 Get all logos, colors, fonts, and assets in a single organized ZIP file.
               </p>
             </div>
-            <button className="shrink-0 px-8 py-4 rounded-full bg-sunshine text-abyss font-semibold hover:bg-amber-300 transition-colors flex items-center gap-2">
+            <button className="shrink-0 px-8 py-4 rounded-2xl bg-sunshine border-b-4 border-[#d4a90e] text-abyss font-bold uppercase tracking-wide hover:brightness-110 active:border-b-0 active:mt-1 transition-all flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

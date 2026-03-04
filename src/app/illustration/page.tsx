@@ -34,7 +34,6 @@ export default function IllustrationPage() {
       <PageHeader
         title="Illustration"
         description="Create artwork that feels right at home in the expanding Articulink universe."
-        color="bg-jellyfish"
       />
 
       {/* Squiggles */}
@@ -102,7 +101,7 @@ export default function IllustrationPage() {
         </p>
 
         <div className="rounded-2xl bg-bg-card card-depth overflow-hidden">
-          <div className="bg-abyss p-12 flex items-center justify-center gap-8">
+          <div className="bg-tide p-12 flex items-center justify-center gap-8">
             <svg className="w-4 h-4 text-sunshine/40" viewBox="0 0 16 16" fill="currentColor">
               <path d="M8 0L9.6 6.4 16 8 9.6 9.6 8 16 6.4 9.6 0 8 6.4 6.4 8 0Z" />
             </svg>

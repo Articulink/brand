@@ -93,7 +93,6 @@ export default function ComponentsPage() {
       <PageHeader
         title="Components"
         description="A unified component library for all Articulink products. Use these components to build consistent, accessible interfaces across Portal, Website, Admin, and Screener."
-        color="bg-tide"
       />
 
       <div className="px-8 lg:px-16 py-12">

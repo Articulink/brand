@@ -7,24 +7,23 @@ export default function MarketingPage() {
       <PageHeader
         title="Marketing"
         description="Create materials using all the critical elements of the Articulink visual identity."
-        color="bg-error"
       />
 
       {/* Components */}
       <Section title="Buttons" id="buttons">
         <p className="text-text-secondary mb-8 max-w-2xl">
-          Buttons are pill-shaped with generous padding. Use the appropriate variant for context.
+          Buttons have a playful 3D depth effect with a darker bottom border. Use uppercase text with letter spacing.
         </p>
 
         <div className="rounded-2xl bg-bg-card card-depth p-6 lg:p-8">
           <div className="flex flex-wrap gap-4 items-center mb-8">
-            <button className="px-6 py-3 rounded-full bg-tide text-abyss font-semibold hover:bg-abyss transition-colors">
+            <button className="px-8 py-3 rounded-2xl bg-tide border-b-4 border-[#0369c1] text-white font-bold uppercase tracking-wide hover:brightness-110 active:border-b-0 active:mt-1 transition-all">
               Primary Button
             </button>
-            <button className="px-6 py-3 rounded-full border-2 border-tide text-tide font-semibold hover:bg-tide hover:text-abyss transition-colors">
+            <button className="px-8 py-3 rounded-2xl bg-white border-2 border-border border-b-4 text-tide font-bold uppercase tracking-wide hover:bg-blue-breeze active:border-b-2 active:mt-0.5 transition-all">
               Secondary Button
             </button>
-            <button className="px-6 py-3 rounded-full bg-sunshine text-abyss font-semibold hover:bg-amber-400 transition-colors">
+            <button className="px-8 py-3 rounded-2xl bg-sunshine border-b-4 border-[#d4a90e] text-abyss font-bold uppercase tracking-wide hover:brightness-110 active:border-b-0 active:mt-1 transition-all">
               Accent Button
             </button>
           </div>
