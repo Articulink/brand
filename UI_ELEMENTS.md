@@ -171,7 +171,7 @@ This document catalogs all UI elements across Articulink projects to guide the d
 
 | Element | Description | Used In |
 |---------|-------------|---------|
-| Flat Shapes | Hard-edged single-color shapes (blob, triangle, half-moon, square) | Website, Brand |
+| Flat Shapes | Single-color geometric shapes with rounded corners (circle, triangle, half-moon, square) | Website, Brand |
 | Blob/Glow | Animated gradient blobs | Website |
 | Wave Divider | Section transition | Website |
 | Dot Grid Pattern | Background texture | Website |
