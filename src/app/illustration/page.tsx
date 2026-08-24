@@ -86,7 +86,9 @@ export default function IllustrationPage() {
             </div>
             <ul className="space-y-2 text-sm text-text-secondary">
               <li>• Keep each shape a single, flat color</li>
+              <li>• Use shapes on section backgrounds only</li>
               <li>• Let shapes bleed off the canvas edges</li>
+              <li>• Space shapes across alternating corners</li>
               <li>• Follow the exact SVG paths provided</li>
             </ul>
           </div>
@@ -100,6 +102,7 @@ export default function IllustrationPage() {
             </div>
             <ul className="space-y-2 text-sm text-text-secondary">
               <li>• Overuse decorative elements</li>
+              <li>• Place shapes on cards, photos, or panels</li>
               <li>• Place shapes over text or interactive elements</li>
               <li>• Add gradients, blurs, or outlines to shapes</li>
               <li>• Use illustrations as buttons</li>
