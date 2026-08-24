@@ -36,64 +36,6 @@ export default function IllustrationPage() {
         description="Create artwork that feels right at home in the expanding Articulink universe."
       />
 
-      {/* Squiggles */}
-      <Section title="Squiggles" id="squiggles">
-        <p className="text-text-secondary mb-8 max-w-2xl">
-          Squiggles are our signature decorative element. They add playfulness and warmth
-          to headings. Always use Sunshine (#FCDE1E).
-        </p>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          {/* Standalone */}
-          <div className="rounded-2xl bg-bg-card card-depth overflow-hidden">
-            <div className="bg-bg-secondary p-8 flex flex-col items-center justify-center gap-3">
-              <span className="font-display text-2xl font-bold text-abyss">Our Services</span>
-              <svg viewBox="0 0 120 10" className="h-[10px] w-28">
-                <path
-                  d="M2 6 C18 2, 36 9, 55 5 S82 1, 105 6 S114 8, 118 5"
-                  stroke="#FCDE1E"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-              </svg>
-            </div>
-            <div className="p-4">
-              <p className="text-sm text-text-secondary mb-3">Standalone squiggle</p>
-              <CodeBlock code={`<svg viewBox="0 0 120 10" className="h-[10px] w-28">
-  <path d="M2 6 C18 2, 36 9, 55 5 S82 1, 105 6 S114 8, 118 5"
-    stroke="#FCDE1E" strokeWidth="3.5" strokeLinecap="round" fill="none" />
-</svg>`} />
-            </div>
-          </div>
-
-          {/* Inline */}
-          <div className="rounded-2xl bg-bg-card card-depth overflow-hidden">
-            <div className="bg-bg-secondary p-8 flex items-center justify-center">
-              <span className="font-display text-2xl font-bold text-abyss">
-                For{" "}
-                <span className="relative inline-block">
-                  Every Child
-                  <svg viewBox="0 0 200 10" preserveAspectRatio="none" className="absolute -bottom-1 left-0 w-full h-3">
-                    <path d="M2 6 C35 2, 75 9, 115 5 S160 1, 198 6" stroke="#FCDE1E" strokeWidth="3.5" strokeLinecap="round" fill="none" />
-                  </svg>
-                </span>
-              </span>
-            </div>
-            <div className="p-4">
-              <p className="text-sm text-text-secondary mb-3">Inline underline</p>
-              <CodeBlock code={`<span className="relative inline-block">
-  Every Child
-  <svg viewBox="0 0 200 10" preserveAspectRatio="none"
-    className="absolute -bottom-1 left-0 w-full h-3">
-    <path d="M2 6 C35 2, 75 9, 115 5 S160 1, 198 6" ... />
-  </svg>
-</span>`} />
-            </div>
-          </div>
-        </div>
-      </Section>
-
       {/* Stars */}
       <Section title="Star Sparkles" id="stars">
         <p className="text-text-secondary mb-8 max-w-2xl">
@@ -161,7 +103,6 @@ export default function IllustrationPage() {
               <span className="font-semibold text-abyss">Do</span>
             </div>
             <ul className="space-y-2 text-sm text-text-secondary">
-              <li>• Use squiggles under headings only</li>
               <li>• Keep stars subtle and decorative</li>
               <li>• Use consistent icon stroke width</li>
               <li>• Follow the exact SVG paths provided</li>
@@ -177,7 +118,6 @@ export default function IllustrationPage() {
             </div>
             <ul className="space-y-2 text-sm text-text-secondary">
               <li>• Overuse decorative elements</li>
-              <li>• Create new squiggle variations</li>
               <li>• Mix icon styles</li>
               <li>• Use illustrations as buttons</li>
             </ul>

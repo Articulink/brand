@@ -94,19 +94,6 @@ export default function Home() {
           <blockquote className="font-display text-3xl lg:text-4xl font-bold text-abyss leading-snug">
             &ldquo;To make exceptional speech therapy accessible to every child, delivered with warmth, expertise, and joy.&rdquo;
           </blockquote>
-
-          {/* Squiggle */}
-          <div className="mt-8">
-            <svg viewBox="0 0 120 10" className="h-[10px] w-28">
-              <path
-                d="M2 6 C18 2, 36 9, 55 5 S82 1, 105 6 S114 8, 118 5"
-                stroke="#FCDE1E"
-                strokeWidth="3.5"
-                strokeLinecap="round"
-                fill="none"
-              />
-            </svg>
-          </div>
         </div>
       </section>
     </div>

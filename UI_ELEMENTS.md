@@ -171,7 +171,6 @@ This document catalogs all UI elements across Articulink projects to guide the d
 
 | Element | Description | Used In |
 |---------|-------------|---------|
-| Squiggle Underline | Yellow hand-drawn line | Website, Brand |
 | Star Sparkles | Animated twinkling stars | Website |
 | Speech Bubbles | Floating decorative bubbles | Website |
 | Blob/Glow | Animated gradient blobs | Website |
