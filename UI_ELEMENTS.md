@@ -171,7 +171,7 @@ This document catalogs all UI elements across Articulink projects to guide the d
 
 | Element | Description | Used In |
 |---------|-------------|---------|
-| Star Sparkles | Animated twinkling stars | Website |
+| Bubbles | Drifting ocean bubble clusters | Website, Brand |
 | Speech Bubbles | Floating decorative bubbles | Website |
 | Blob/Glow | Animated gradient blobs | Website |
 | Wave Divider | Section transition | Website |
@@ -267,7 +267,6 @@ This document catalogs all UI elements across Articulink projects to guide the d
 |-----------|-------------|---------|
 | fadeInUp | Fade + slide up | Website, Portal |
 | float | Gentle floating | Website |
-| sparkle | Twinkling effect | Website |
 | pulseGlow | Pulsing opacity | Website |
 | spin | Rotation (loaders) | All projects |
 | scale | Grow on hover | All projects |

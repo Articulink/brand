@@ -94,6 +94,16 @@ export default function Home() {
           <blockquote className="font-display text-3xl lg:text-4xl font-bold text-abyss leading-snug">
             &ldquo;To make exceptional speech therapy accessible to every child, delivered with warmth, expertise, and joy.&rdquo;
           </blockquote>
+
+          {/* Bubbles */}
+          <div className="mt-8">
+            <svg viewBox="0 0 64 64" fill="none" className="w-12 h-12 text-surf/80">
+              <circle cx="22" cy="42" r="13" stroke="currentColor" strokeWidth="2.5" />
+              <path d="M14 39.5 a10.5 10.5 0 0 1 4.5 -7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.55" />
+              <circle cx="45" cy="21" r="8" stroke="currentColor" strokeWidth="2.5" opacity="0.7" />
+              <circle cx="52" cy="46" r="4" fill="currentColor" opacity="0.4" />
+            </svg>
+          </div>
         </div>
       </section>
     </div>
