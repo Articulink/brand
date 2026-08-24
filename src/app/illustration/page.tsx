@@ -52,7 +52,7 @@ export default function IllustrationPage() {
               <circle cx="50" cy="50" r="42" fill="currentColor" />
             </svg>
             <svg viewBox="0 0 100 100" className="w-14 h-14 text-kelp rotate-12">
-              <path d="M50 16 L86 78 L14 78 Z" fill="currentColor" stroke="currentColor" strokeWidth="14" strokeLinejoin="round" />
+              <path d="M50 15.65 L86 78 L14 78 Z" fill="currentColor" stroke="currentColor" strokeWidth="14" strokeLinejoin="round" />
             </svg>
             <svg viewBox="0 0 100 100" className="w-14 h-14 text-coral -rotate-45">
               <path d="M10 64 A 40 40 0 0 1 90 64 Z" fill="currentColor" stroke="currentColor" strokeWidth="10" strokeLinejoin="round" />
@@ -66,7 +66,7 @@ export default function IllustrationPage() {
             <CodeBlock code={`<circle cx="50" cy="50" r="42" fill="currentColor" />
 
 {/* Triangle and half-moon — corners rounded by the stroke join */}
-<path d="M50 16 L86 78 L14 78 Z" fill="currentColor" stroke="currentColor" strokeWidth="14" strokeLinejoin="round" />
+<path d="M50 15.65 L86 78 L14 78 Z" fill="currentColor" stroke="currentColor" strokeWidth="14" strokeLinejoin="round" />
 <path d="M10 64 A 40 40 0 0 1 90 64 Z" fill="currentColor" stroke="currentColor" strokeWidth="10" strokeLinejoin="round" />
 
 <rect x="18" y="18" width="64" height="64" rx="14" fill="currentColor" />`} />
