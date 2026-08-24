@@ -171,8 +171,7 @@ This document catalogs all UI elements across Articulink projects to guide the d
 
 | Element | Description | Used In |
 |---------|-------------|---------|
-| Bubbles | Drifting ocean bubble clusters | Website, Brand |
-| Speech Bubbles | Floating decorative bubbles | Website |
+| Flat Shapes | Hard-edged single-color shapes (blob, triangle, half-moon, square) | Website, Brand |
 | Blob/Glow | Animated gradient blobs | Website |
 | Wave Divider | Section transition | Website |
 | Dot Grid Pattern | Background texture | Website |

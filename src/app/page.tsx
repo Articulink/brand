@@ -95,13 +95,16 @@ export default function Home() {
             &ldquo;To make exceptional speech therapy accessible to every child, delivered with warmth, expertise, and joy.&rdquo;
           </blockquote>
 
-          {/* Bubbles */}
-          <div className="mt-8">
-            <svg viewBox="0 0 64 64" fill="none" className="w-12 h-12 text-surf/80">
-              <circle cx="22" cy="42" r="13" stroke="currentColor" strokeWidth="2.5" />
-              <path d="M14 39.5 a10.5 10.5 0 0 1 4.5 -7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.55" />
-              <circle cx="45" cy="21" r="8" stroke="currentColor" strokeWidth="2.5" opacity="0.7" />
-              <circle cx="52" cy="46" r="4" fill="currentColor" opacity="0.4" />
+          {/* Shapes */}
+          <div className="mt-8 flex items-center gap-4">
+            <svg viewBox="-100 -100 200 200" className="w-10 h-10 text-sunshine">
+              <path d="M44.1,-58.3C56.4,-49.5,64.8,-35.2,68.6,-19.9C72.4,-4.6,71.5,11.7,64.7,25.2C57.9,38.6,45.1,49.2,31.1,55.9C17.1,62.7,1.9,65.6,-13.2,63.3C-28.2,61,-43.1,53.5,-53.3,41.6C-63.5,29.7,-69,13.5,-68.3,-2.3C-67.6,-18,-60.7,-33.2,-49.8,-42.2C-38.9,-51.1,-24,-53.7,-9.4,-56.2C5.2,-58.6,20.5,-60.9,44.1,-58.3Z" fill="currentColor" />
+            </svg>
+            <svg viewBox="0 0 100 100" className="w-8 h-8 text-coral -rotate-45">
+              <path d="M10 64 A 40 40 0 0 1 90 64 Z" fill="currentColor" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
+            </svg>
+            <svg viewBox="0 0 100 100" className="w-8 h-8 text-surf rotate-12">
+              <path d="M20 16 L84 22 L78 84 L16 76 Z" fill="currentColor" stroke="currentColor" strokeWidth="12" strokeLinejoin="round" />
             </svg>
           </div>
         </div>
