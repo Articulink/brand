@@ -42,8 +42,15 @@ export default function IllustrationPage() {
           Flat geometric shapes are our signature decorative element: circle,
           triangle, half-moon, and square, all with rounded corners. Each shape is a
           single solid color from the palette — no gradients, blurs, or outlines.
-          Cluster them at the edges of a section, tilt them, and let them bleed
-          off-canvas; they sit beside or behind content, never over text.
+        </p>
+        <p className="text-text-secondary mb-8 max-w-2xl">
+          On marketing surfaces the shapes appear through the infinite pattern
+          tile: two seamlessly repeating layers (small shapes on a 640px period,
+          large on 900px) drift against each other over a Tide Deep field, so the
+          pattern covers any section size without a visible repeat. Content in
+          these bold sections sits on an opaque Tide card, so shapes never touch
+          text. The layers are generated with spacing and color-separation
+          constraints by the website&apos;s scripts/generate-shape-tile.mjs.
         </p>
 
         <div className="rounded-2xl bg-bg-card card-depth overflow-hidden">
