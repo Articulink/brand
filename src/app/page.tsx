@@ -95,16 +95,16 @@ export default function Home() {
             &ldquo;To make exceptional speech therapy accessible to every child, delivered with warmth, expertise, and joy.&rdquo;
           </blockquote>
 
-          {/* Squiggle */}
-          <div className="mt-8">
-            <svg viewBox="0 0 120 10" className="h-[10px] w-28">
-              <path
-                d="M2 6 C18 2, 36 9, 55 5 S82 1, 105 6 S114 8, 118 5"
-                stroke="#FCDE1E"
-                strokeWidth="3.5"
-                strokeLinecap="round"
-                fill="none"
-              />
+          {/* Shapes */}
+          <div className="mt-8 flex items-center gap-4">
+            <svg viewBox="0 0 100 100" className="w-9 h-9 text-sunshine">
+              <circle cx="50" cy="50" r="42" fill="currentColor" />
+            </svg>
+            <svg viewBox="0 0 100 100" className="w-8 h-8 text-coral -rotate-45">
+              <path d="M10 64 A 40 40 0 0 1 90 64 Z" fill="currentColor" stroke="currentColor" strokeWidth="10" strokeLinejoin="round" />
+            </svg>
+            <svg viewBox="0 0 100 100" className="w-8 h-8 text-surf rotate-12">
+              <rect x="18" y="18" width="64" height="64" rx="14" fill="currentColor" />
             </svg>
           </div>
         </div>

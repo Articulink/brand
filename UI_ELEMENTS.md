@@ -171,9 +171,8 @@ This document catalogs all UI elements across Articulink projects to guide the d
 
 | Element | Description | Used In |
 |---------|-------------|---------|
-| Squiggle Underline | Yellow hand-drawn line | Website, Brand |
-| Star Sparkles | Animated twinkling stars | Website |
-| Speech Bubbles | Floating decorative bubbles | Website |
+| Flat Shapes | Single-color geometric shapes with rounded corners (circle, triangle, half-moon, square) | Website, Brand |
+| Shape Tile | Two-layer infinite shape pattern on Tide Deep; content sits on a Tide card | Website |
 | Blob/Glow | Animated gradient blobs | Website |
 | Wave Divider | Section transition | Website |
 | Dot Grid Pattern | Background texture | Website |
@@ -268,7 +267,6 @@ This document catalogs all UI elements across Articulink projects to guide the d
 |-----------|-------------|---------|
 | fadeInUp | Fade + slide up | Website, Portal |
 | float | Gentle floating | Website |
-| sparkle | Twinkling effect | Website |
 | pulseGlow | Pulsing opacity | Website |
 | spin | Rotation (loaders) | All projects |
 | scale | Grow on hover | All projects |
